@@ -103,7 +103,7 @@ Yaşa göre sıralayın.
 
 
 
-
+--------------------------------------------------------------------
 olarak aşağıdaki veriyi indirin:Kaggle: Titanic Dataset
 Veri üzerinde aşağıdaki işlemleri yapın:
 
