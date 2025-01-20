@@ -1,0 +1,142 @@
+200 günlük yapay zeka kampı-Genoma class
+1.hafta
+
+1-3x3 Numpy ile random matris
+1.2-Matrisin transpozesi,determinantı,2 ile çarpımı
+
+Görevler:
+
+
+
+3x3 boyutunda rastgele tamsayılardan oluşan bir NumPy matrisi oluşturun.
+Bu matrisin:
+
+Transpozesini alın.
+Determinantını hesaplayın.
+Her elemanını 2 ile çarpan bir matris oluşturun.
+
+
+
+
+
+
+1 ile 50 arasında 10 eşit aralıklı sayı içeren bir NumPy dizisi oluşturun.
+Bu dizinin:
+
+Ortalamasını ve standart sapmasını hesaplayın.
+Elemanlarının karesini alın.
+Elemanlardan 25’ten büyük olanları filtreleyip ekrana yazdırın.
+
+
+
+
+
+
+Sırasıyla sinüs ve kosinüs değerlerini hesaplamak için 0 ile 2π arasında 100 değer üreten bir NumPy dizisi oluşturun.
+Sin ve cos değerlerini aynı grafikte çizdirin. (Matplotlib kullanabilirsiniz.)
+
+
+
+
+
+Görevler:
+
+
+
+
+Aşağıdaki verilerle bir DataFrame oluşturun:
+
+
+
+
+İsim
+
+Yaş
+
+Maaş
+
+
+
+
+
+Veli
+
+25
+
+5000
+
+
+
+Ayşe
+
+30
+
+6000
+
+
+
+Mehmet
+
+22
+
+4500
+
+
+
+Betül
+
+27
+
+5200
+
+
+
+
+
+Bu DataFrame üzerinde şu işlemleri gerçekleştirin:
+
+Ortalama yaş ve maaşı hesaplayın.
+Maaşı 5000’den büyük olan kişileri filtreleyin.
+Yaşa göre sıralayın.
+
+
+
+
+
+
+olarak aşağıdaki veriyi indirin:Kaggle: Titanic Dataset
+Veri üzerinde aşağıdaki işlemleri yapın:
+
+İlk 10 satırı görüntüleyin.
+Eksik verileri bulun ve doldurun (örneğin, eksik yaş verilerini yaşların ortalaması ile doldurun).
+sütunundaki kadın ve erkek yolcuların sayısını bulun.
+Hayatta kalma oranını hesaplayın.
+
+
+
+
+
+
+Yolcuları sınıf sütununa (Pclass) göre gruplayarak hayatta kalma oranlarını hesaplayın.
+Bu gruplara ait hayatta kalma oranlarını bir çubuk grafikle görselleştirin.
+
+
+
+
+
+
+Kodlarınızı bir dosyasında yazın ve dosyanızı şu formatta teslim edin: isim_soyisim_numpy_pandas.ipynb
+Notebook içinde kodlarınızı yorumlayarak açıklamalar ekleyin.
+
+
+
+Pandas ile bir tablo oluşturup bu tabloyu Excel’e aktarın ve kaydedin.
+Kaydedilen Excel dosyasını tekrar okuyarak yeni bir DataFrame olarak yükleyin.
+
+echo "# DiagnostiCode-Kamp" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin git@github.com:Fase2507/DiagnostiCode-Kamp.git
+git push -u origin main
