@@ -44,13 +44,40 @@ import matplotlib.pyplot as plt
 # print("yaşa göre sırala,Küçükten buyuğe: \n",df.sort_values(by=['yaş'],ascending=True))
 
 # Task5 Tıntanic
-# df=pd.read_csv("titanic.csv")
+df=pd.read_csv("titanic.csv")
+# print(df['Pclass'])
 # print(df.columns)
 # print(df.head(10))
 # print(df.tail(5))
 # print(df['Age'].isnull().fillna(df['Age'].mean()))
-#__________________________________________________
 # print("Hayatta kalan kisi sayısı Erkek Kadın \n",df.groupby('Sex')['Survived'].sum())
 # print("Toplam kisi sayısı Kadın Erkek \n",df.groupby('Sex')['PassengerId'].count())
 # sonuc=df.groupby('Sex')['Survived'].sum()/df.groupby('Sex')['PassengerId'].count()
 # print("Oranlar \n",sonuc)
+
+
+#task-6
+# survival_rates_by_class = df.groupby('Pclass')['Survived'].mean()
+#
+# plt.figure(figsize=(8, 6))
+# survival_rates_by_class.plot(kind='bar', color='skyblue', edgecolor='black')
+# plt.title('Survival Rates by Passenger Class')
+# plt.xlabel('Passenger Class')
+# plt.ylabel('Survival Rate')
+# plt.xticks(rotation=0)
+# plt.grid(axis='y', linestyle='--', alpha=0.7)
+# plt.show()
+
+##Task-7
+# data={
+#     'brand':['TOGG','BYD','TOYOTA','BMW','MERCEDES'],
+#     'model':['t10x','seal','corolla','320i','e200'],
+#     'year':[2023,2024,2016,2017,2018],
+#     'price':[1200,1000,800,1100,1500]
+# }
+# DF=pd.DataFrame(data)
+# print(DF.to_excel('ExcelFiles/data.xlsx',index=False),'Excel dosyası oluşturuldu.') #Excel dosyası oluşturuldu
+
+dataframe=pd.read_excel("./ExcelFiles/data.xlsx")
+# print(dataframe.to_csv('ExcelFiles/data.csv',index=False),'CSV dosyası oluşturuldu.') #CSV dosyası oluşturuldu
+print(dataframe)
