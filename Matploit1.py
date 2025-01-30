@@ -7,35 +7,92 @@ import glob
 import matplotlib.pyplot as plt
 import seaborn as sns
 from matplotlib import style
-from matplotlib.pyplot import ylabel, xlabel
+from matplotlib.pyplot import tight_layout
 
 ##LINKS
 #https://matplotlib.org/stable/gallery/index.html
 #https://matplotlib.org/stable/gallery/index.html
 #https://matplotlib.org/stable/plot_types/index
 
-#PIE CHART!!
-labels=["py","js","java","cpp"]
 
-sizes=[50,79,122,21]
+# TASK-1 Bir çizgi grafiği oluştur ve eksenlere başlık ekle.
+#Aynı grafikte bir çubuk grafiği göster.
 
-explode=[0.2,0,0,0.2]
+x = [11, 21, 32, 4, 10]
+y = ["goat", "dog", "horse", "deer", "eagle"]
+Nticks=list(range(4,35,7))
 
-plt.pie(sizes,labels=labels,autopct="%.2f%%",shadow=False,startangle=90,explode=explode)
-plt.title("pie chart")
+plt.figure(figsize=(5, 5))
+plt.xlabel("x ekseni")
+plt.ylabel("y ekseni")
+plt.xticks(Nticks,[f"{x}" for x in Nticks])
+plt.yticks(range(len(y)), y)
+plt.plot(x, y)
+plt.bar(x, y)
 plt.show()
+
+# TASK-2 Tek bir figür içinde iki farklı alt grafik oluştur (örneğin, birinci alt grafikte scatter plot, ikinci alt grafikte histogram).
+#Tek bir figür içinde iki farklı alt grafik oluştur (örneğin, birinci alt grafikte scatter plot, ikinci alt grafikte histogram).
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 5))
+ax1.scatter(x, y)
+ax2.hist(x, bins=10, color="purple")
+tight_layout()
+# plt.savefig('Img/figure.png', dpi=300, bbox_inches='tight')#Çizdiğin bir grafiği .png formatında kaydet.
+plt.show()
+
+# TASK-3 Bir Pandas DataFrame kullanarak bir barplot oluştur.
+#Aynı veriyle bir boxplot çiz.
+veri={
+    "takim":["bjk","fb","gs","ts"],
+    "puan":[70,85,90,60],
+    "galibiyet":[20,26,29,20]
+}
+veriCanvası=pd.DataFrame(veri)
+# plt.bar(veriCanvası["takim"],veriCanvası["puan"])
+plt.boxplot(veriCanvası["galibiyet"])
+plt.show()
+
+
+# TASK-4 Bir dağılım grafiği çiz ve bu grafikte renk paleti kullan.
+#Aynı veriyle bir distplot ve bir kdeplot çiz.
+sns.set_style("darkgrid")
+tips = sns.load_dataset("tips")
+sns.histplot(tips["total_bill"], color="blue", kde=True)
+sns.kdeplot(tips["total_bill"], fill=True, color="red")
+plt.show()
+
+
+# TASK-5 Bir DataFrame’den bir heatmap oluştur ve renk skalasını özelleştir.
+#HEATMAP
+flights = sns.load_dataset("flights")
+heatmap = flights.pivot_table(index="month", columns="year", values="passengers", aggfunc="sum", observed=False)
+sns.heatmap(heatmap, annot=True, fmt="d", cmap="coolwarm", linewidths=.5, linecolor="black")
+plt.show()
+
+
+#PIE CHART!!
+# labels=["py","js","java","cpp"]
+#
+# sizes=[50,79,122,21]
+#
+# explode=[0.2,0,0,0.2]
+#
+# plt.pie(sizes,labels=labels,autopct="%.2f%%",shadow=False,startangle=90,explode=explode)
+# plt.title("pie chart")
+# plt.show()
 
 #HISTOGRAM
-ages=np.random.normal(23,2,size=100)
-plt.hist(ages.round(2),bins=20,cumulative=True,color="red",edgecolor="black",alpha=0.7)
-plt.show()
+# ages=np.random.normal(23,2,size=100)
+# plt.hist(ages.round(2),bins=20,cumulative=True,color="red",edgecolor="black",alpha=0.7)
+# plt.show()
 
 
 #BAR PLOT
-data=[10,2,35,40,5]
-labels=["cpp","Bash","python","javascript","java"]
-plt.bar(labels,data,color="red",edgecolor="black",width=.5,alpha=0.9,linewidth=3,tick_label=labels)
-plt.show()
+# data=[10,2,35,40,5]
+# labels=["cpp","Bash","python","javascript","java"]
+# plt.figure(figsize=(5,5))
+# plt.bar(labels,data,color="red",edgecolor="black",width=.5,alpha=0.9,linewidth=3,tick_label=labels)
+# plt.show()
 
 
 #PLOT & SCATTER together
