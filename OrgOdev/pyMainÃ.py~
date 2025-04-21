@@ -1,0 +1,30 @@
+import cv2
+import numpy as np
+import time
+
+# cap=cv2.VideoCapture(0)
+# cap.set(3,640)
+# cap.set(4,480)
+#
+# while True:
+#     success,img=cap.read()
+#     cv2.imshow("Video",img)
+#     if cv2.waitKey(1)&0xFF==ord('q'):
+#         break
+#
+# cap.release()
+# cv2.destroyAllWindows()
+
+
+img=cv2.VideoCapture(0)
+img.set(3,640)
+img.set(4,480)
+
+while True:
+    success,image=img.read()
+    cv2.imshow("Video",image)
+    if cv2.waitKey(1)&0xFF==ord('q'):
+        break
+
+img.release()
+cv2.destroyAllWindows()
