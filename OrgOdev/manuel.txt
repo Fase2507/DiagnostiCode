@@ -1,0 +1,18 @@
+Stage | Description
+✅ Python Code | What you write
+⚙️ Tokenizing & AST | Python breaks down your logic
+🧠 Bytecode | Compiled to .pyc, runs on PVM
+🔩 Native Execution | PVM interprets or calls C extensions
+🧬 Assembly | Only when JIT, or via C extensions, or manual compiling
+
+Image Input (face.jpg)
+      |
+[Python Code (OpenCV)]
+      |
+[C/C++ Library Functions]
+      |
+[Assembly Instructions]
+      |
+[Machine Code (Binary)]
+
+Image → High-Level Code (Python) → C Code → Assembly → Machine Code → Output

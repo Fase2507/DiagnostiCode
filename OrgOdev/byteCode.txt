@@ -1,0 +1,390 @@
+  0           0 RESUME                   0
+
+  2           2 LOAD_CONST               0 ('cropped_parts')
+              4 STORE_NAME               0 (output_dir)
+
+  3           6 LOAD_NAME                1 (os)
+              8 LOAD_ATTR                5 (NULL|self + makedirs)
+             28 LOAD_NAME                0 (output_dir)
+             30 LOAD_CONST               1 (True)
+             32 KW_NAMES                 2 (('exist_ok',))
+             34 CALL                     2
+             42 POP_TOP
+
+  6          44 LOAD_NAME                3 (cv2)
+             46 LOAD_ATTR                9 (NULL|self + CascadeClassifier)
+             66 LOAD_NAME                3 (cv2)
+             68 LOAD_ATTR               10 (data)
+             88 LOAD_ATTR               12 (haarcascades)
+            108 LOAD_CONST               3 ('haarcascade_frontalface_default.xml')
+            110 BINARY_OP                0 (+)
+            114 CALL                     1
+            122 STORE_NAME               7 (face_cascade)
+
+  7         124 LOAD_NAME                3 (cv2)
+            126 LOAD_ATTR                9 (NULL|self + CascadeClassifier)
+            146 LOAD_NAME                3 (cv2)
+            148 LOAD_ATTR               10 (data)
+            168 LOAD_ATTR               12 (haarcascades)
+            188 LOAD_CONST               4 ('haarcascade_righteye_2splits.xml')
+            190 BINARY_OP                0 (+)
+            194 CALL                     1
+            202 STORE_NAME               8 (eye_cascade)
+
+  8         204 LOAD_NAME                3 (cv2)
+            206 LOAD_ATTR                9 (NULL|self + CascadeClassifier)
+            226 LOAD_NAME                3 (cv2)
+            228 LOAD_ATTR               10 (data)
+            248 LOAD_ATTR               12 (haarcascades)
+            268 LOAD_CONST               5 ('haarcascade_smile.xml')
+            270 BINARY_OP                0 (+)
+            274 CALL                     1
+            282 STORE_NAME               9 (mouth_cascade)
+
+ 10         284 LOAD_NAME                3 (cv2)
+            286 LOAD_ATTR               21 (NULL|self + VideoCapture)
+            306 LOAD_CONST               6 (0)
+            308 CALL                     1
+            316 STORE_NAME              11 (cap)
+
+ 11         318 LOAD_CONST               7 (10)
+            320 STORE_NAME              12 (max_photos)
+
+ 12         322 LOAD_CONST               6 (0)
+            324 STORE_NAME              13 (eye_count)
+
+ 13         326 LOAD_CONST               6 (0)
+            328 STORE_NAME              14 (face_count)
+
+ 14         330 LOAD_CONST               6 (0)
+            332 STORE_NAME              15 (mouth_count)
+
+ 16         334 NOP
+
+ 17     >>  336 LOAD_NAME               11 (cap)
+            338 LOAD_ATTR               33 (NULL|self + read)
+            358 CALL                     0
+            366 UNPACK_SEQUENCE          2
+            370 STORE_NAME              17 (ret)
+            372 STORE_NAME              18 (frame)
+
+ 18         374 LOAD_NAME               17 (ret)
+            376 POP_JUMP_IF_TRUE         2 (to 382)
+
+ 19         378 EXTENDED_ARG             1
+            380 JUMP_FORWARD           476 (to 1334)
+
+ 20     >>  382 LOAD_NAME               14 (face_count)
+            384 LOAD_NAME               12 (max_photos)
+            386 COMPARE_OP              92 (>=)
+            390 POP_JUMP_IF_FALSE       20 (to 432)
+            392 LOAD_NAME               13 (eye_count)
+            394 LOAD_NAME               12 (max_photos)
+            396 COMPARE_OP              92 (>=)
+            400 POP_JUMP_IF_FALSE       15 (to 432)
+            402 LOAD_NAME               15 (mouth_count)
+            404 LOAD_NAME               12 (max_photos)
+            406 COMPARE_OP              92 (>=)
+            410 POP_JUMP_IF_FALSE       10 (to 432)
+
+ 21         412 PUSH_NULL
+            414 LOAD_NAME               19 (print)
+            416 LOAD_CONST               8 ('Collected 10 images of each part. Exiting.')
+            418 CALL                     1
+            426 POP_TOP
+
+ 22         428 EXTENDED_ARG             1
+            430 JUMP_FORWARD           451 (to 1334)
+
+ 24     >>  432 LOAD_NAME                3 (cv2)
+            434 LOAD_ATTR               41 (NULL|self + cvtColor)
+            454 LOAD_NAME               18 (frame)
+            456 LOAD_NAME                3 (cv2)
+            458 LOAD_ATTR               42 (COLOR_BGR2GRAY)
+            478 CALL                     2
+            486 STORE_NAME              22 (gray)
+
+ 26         488 LOAD_NAME                7 (face_cascade)
+            490 LOAD_ATTR               47 (NULL|self + detectMultiScale)
+            510 LOAD_NAME               22 (gray)
+            512 LOAD_CONST               9 (1.3)
+            514 LOAD_CONST              10 (5)
+            516 CALL                     3
+            524 STORE_NAME              24 (faces)
+
+ 27         526 LOAD_NAME               24 (faces)
+            528 GET_ITER
+        >>  530 EXTENDED_ARG             1
+            532 FOR_ITER               348 (to 1232)
+            536 UNPACK_SEQUENCE          4
+            540 STORE_NAME              25 (x)
+            542 STORE_NAME              26 (y)
+            544 STORE_NAME              27 (w)
+            546 STORE_NAME              28 (h)
+
+ 28         548 LOAD_NAME               22 (gray)
+            550 LOAD_NAME               26 (y)
+            552 LOAD_NAME               26 (y)
+            554 LOAD_NAME               28 (h)
+            556 BINARY_OP                0 (+)
+            560 BUILD_SLICE              2
+            562 LOAD_NAME               25 (x)
+            564 LOAD_NAME               25 (x)
+            566 LOAD_NAME               27 (w)
+            568 BINARY_OP                0 (+)
+            572 BUILD_SLICE              2
+            574 BUILD_TUPLE              2
+            576 BINARY_SUBSCR
+            580 STORE_NAME              29 (roi_gray)
+
+ 29         582 LOAD_NAME               18 (frame)
+            584 LOAD_NAME               26 (y)
+            586 LOAD_NAME               26 (y)
+            588 LOAD_NAME               28 (h)
+            590 BINARY_OP                0 (+)
+            594 BUILD_SLICE              2
+            596 LOAD_NAME               25 (x)
+            598 LOAD_NAME               25 (x)
+            600 LOAD_NAME               27 (w)
+            602 BINARY_OP                0 (+)
+            606 BUILD_SLICE              2
+            608 BUILD_TUPLE              2
+            610 BINARY_SUBSCR
+            614 STORE_NAME              30 (roi_color)
+
+ 31         616 LOAD_NAME               14 (face_count)
+            618 LOAD_NAME               12 (max_photos)
+            620 COMPARE_OP               2 (<)
+            624 POP_JUMP_IF_FALSE       78 (to 782)
+
+ 32         626 LOAD_NAME                3 (cv2)
+            628 LOAD_ATTR               63 (NULL|self + rectangle)
+            648 LOAD_NAME               18 (frame)
+            650 LOAD_NAME               25 (x)
+            652 LOAD_NAME               26 (y)
+            654 BUILD_TUPLE              2
+            656 LOAD_NAME               25 (x)
+            658 LOAD_NAME               27 (w)
+            660 BINARY_OP                0 (+)
+            664 LOAD_NAME               26 (y)
+            666 LOAD_NAME               28 (h)
+            668 BINARY_OP                0 (+)
+            672 BUILD_TUPLE              2
+            674 LOAD_CONST              11 ((255, 0, 0))
+            676 LOAD_CONST              12 (2)
+            678 CALL                     5
+            686 STORE_NAME              32 (face_img)
+
+ 33         688 LOAD_NAME                3 (cv2)
+            690 LOAD_ATTR               67 (NULL|self + imwrite)
+            710 LOAD_NAME                0 (output_dir)
+            712 FORMAT_VALUE             0
+            714 LOAD_CONST              13 ('/face_')
+            716 LOAD_NAME               14 (face_count)
+            718 FORMAT_VALUE             0
+            720 LOAD_CONST              14 ('.jpg')
+            722 BUILD_STRING             4
+            724 LOAD_NAME               32 (face_img)
+            726 CALL                     2
+            734 POP_TOP
+
+ 34         736 LOAD_NAME                3 (cv2)
+            738 LOAD_ATTR               69 (NULL|self + imshow)
+            758 LOAD_CONST              15 ('Face')
+            760 LOAD_NAME               32 (face_img)
+            762 CALL                     2
+            770 POP_TOP
+
+ 35         772 LOAD_NAME               14 (face_count)
+            774 LOAD_CONST              16 (1)
+            776 BINARY_OP               13 (+=)
+            780 STORE_NAME              14 (face_count)
+
+ 37     >>  782 LOAD_NAME                8 (eye_cascade)
+            784 LOAD_ATTR               47 (NULL|self + detectMultiScale)
+            804 LOAD_NAME               29 (roi_gray)
+            806 LOAD_CONST              17 (1.1)
+            808 LOAD_CONST               7 (10)
+            810 CALL                     3
+            818 STORE_NAME              35 (eyes)
+
+ 38         820 PUSH_NULL
+            822 LOAD_NAME               36 (enumerate)
+            824 LOAD_NAME               35 (eyes)
+            826 CALL                     1
+            834 GET_ITER
+        >>  836 FOR_ITER                81 (to 1002)
+            840 UNPACK_SEQUENCE          2
+            844 STORE_NAME              37 (i)
+            846 UNPACK_SEQUENCE          4
+            850 STORE_NAME              38 (ex)
+            852 STORE_NAME              39 (ey)
+            854 STORE_NAME              40 (ew)
+            856 STORE_NAME              41 (eh)
+
+ 39         858 LOAD_NAME               13 (eye_count)
+            860 LOAD_NAME               12 (max_photos)
+            862 COMPARE_OP               2 (<)
+            866 POP_JUMP_IF_TRUE         1 (to 870)
+            868 JUMP_BACKWARD           17 (to 836)
+
+ 40     >>  870 LOAD_NAME               30 (roi_color)
+            872 LOAD_NAME               39 (ey)
+            874 LOAD_NAME               39 (ey)
+            876 LOAD_NAME               41 (eh)
+            878 BINARY_OP                0 (+)
+            882 BUILD_SLICE              2
+            884 LOAD_NAME               38 (ex)
+            886 LOAD_NAME               38 (ex)
+            888 LOAD_NAME               40 (ew)
+            890 BINARY_OP                0 (+)
+            894 BUILD_SLICE              2
+            896 BUILD_TUPLE              2
+            898 BINARY_SUBSCR
+            902 STORE_NAME              42 (eye_img)
+
+ 41         904 LOAD_NAME                3 (cv2)
+            906 LOAD_ATTR               67 (NULL|self + imwrite)
+            926 LOAD_NAME                0 (output_dir)
+            928 FORMAT_VALUE             0
+            930 LOAD_CONST              18 ('/eye_')
+            932 LOAD_NAME               13 (eye_count)
+            934 FORMAT_VALUE             0
+            936 LOAD_CONST              14 ('.jpg')
+            938 BUILD_STRING             4
+            940 LOAD_NAME               42 (eye_img)
+            942 CALL                     2
+            950 POP_TOP
+
+ 42         952 LOAD_NAME                3 (cv2)
+            954 LOAD_ATTR               69 (NULL|self + imshow)
+            974 LOAD_CONST              19 ('Eye')
+            976 LOAD_NAME               42 (eye_img)
+            978 CALL                     2
+            986 POP_TOP
+
+ 43         988 LOAD_NAME               13 (eye_count)
+            990 LOAD_CONST              16 (1)
+            992 BINARY_OP               13 (+=)
+            996 STORE_NAME              13 (eye_count)
+
+ 44         998 POP_TOP
+           1000 JUMP_FORWARD             1 (to 1004)
+
+ 38     >> 1002 END_FOR
+
+ 47     >> 1004 LOAD_NAME                9 (mouth_cascade)
+           1006 LOAD_ATTR               47 (NULL|self + detectMultiScale)
+           1026 LOAD_NAME               29 (roi_gray)
+           1028 LOAD_CONST              20 (1.5)
+           1030 LOAD_CONST              21 (11)
+           1032 CALL                     3
+           1040 STORE_NAME              43 (mouths)
+
+ 48        1042 LOAD_NAME               43 (mouths)
+           1044 GET_ITER
+        >> 1046 FOR_ITER                88 (to 1226)
+           1050 UNPACK_SEQUENCE          4
+           1054 STORE_NAME              44 (mx)
+           1056 STORE_NAME              45 (my)
+           1058 STORE_NAME              46 (mw)
+           1060 STORE_NAME              47 (mh)
+
+ 49        1062 LOAD_NAME               45 (my)
+           1064 LOAD_NAME               28 (h)
+           1066 LOAD_CONST              12 (2)
+           1068 BINARY_OP               11 (/)
+           1072 COMPARE_OP              68 (>)
+           1076 POP_JUMP_IF_TRUE         1 (to 1080)
+           1078 JUMP_BACKWARD           17 (to 1046)
+        >> 1080 LOAD_NAME               15 (mouth_count)
+           1082 LOAD_NAME               12 (max_photos)
+           1084 COMPARE_OP               2 (<)
+           1088 POP_JUMP_IF_TRUE         1 (to 1092)
+           1090 JUMP_BACKWARD           23 (to 1046)
+
+ 50     >> 1092 LOAD_NAME               30 (roi_color)
+           1094 LOAD_NAME               45 (my)
+           1096 LOAD_NAME               45 (my)
+           1098 LOAD_NAME               47 (mh)
+           1100 BINARY_OP                0 (+)
+           1104 BUILD_SLICE              2
+           1106 LOAD_NAME               44 (mx)
+           1108 LOAD_NAME               44 (mx)
+           1110 LOAD_NAME               46 (mw)
+           1112 BINARY_OP                0 (+)
+           1116 BUILD_SLICE              2
+           1118 BUILD_TUPLE              2
+           1120 BINARY_SUBSCR
+           1124 STORE_NAME              48 (mouth_img)
+
+ 51        1126 LOAD_NAME                3 (cv2)
+           1128 LOAD_ATTR               67 (NULL|self + imwrite)
+           1148 LOAD_NAME                0 (output_dir)
+           1150 FORMAT_VALUE             0
+           1152 LOAD_CONST              22 ('/mouth_')
+           1154 LOAD_NAME               15 (mouth_count)
+           1156 FORMAT_VALUE             0
+           1158 LOAD_CONST              14 ('.jpg')
+           1160 BUILD_STRING             4
+           1162 LOAD_NAME               48 (mouth_img)
+           1164 CALL                     2
+           1172 POP_TOP
+
+ 52        1174 LOAD_NAME                3 (cv2)
+           1176 LOAD_ATTR               69 (NULL|self + imshow)
+           1196 LOAD_CONST              23 ('Mouth')
+           1198 LOAD_NAME               48 (mouth_img)
+           1200 CALL                     2
+           1208 POP_TOP
+
+ 53        1210 LOAD_NAME               15 (mouth_count)
+           1212 LOAD_CONST              16 (1)
+           1214 BINARY_OP               13 (+=)
+           1218 STORE_NAME              15 (mouth_count)
+
+ 54        1220 POP_TOP
+           1222 EXTENDED_ARG             1
+           1224 JUMP_BACKWARD          348 (to 530)
+
+ 48     >> 1226 END_FOR
+           1228 EXTENDED_ARG             1
+           1230 JUMP_BACKWARD          351 (to 530)
+
+ 27     >> 1232 END_FOR
+
+ 56        1234 LOAD_NAME                3 (cv2)
+           1236 LOAD_ATTR               69 (NULL|self + imshow)
+           1256 LOAD_CONST              24 ('Face,eyes and mouth detection')
+           1258 LOAD_NAME               18 (frame)
+           1260 CALL                     2
+           1268 POP_TOP
+
+ 57        1270 LOAD_NAME                3 (cv2)
+           1272 LOAD_ATTR               99 (NULL|self + waitKey)
+           1292 LOAD_CONST              16 (1)
+           1294 CALL                     1
+           1302 LOAD_CONST              25 (255)
+           1304 BINARY_OP                1 (&)
+           1308 PUSH_NULL
+           1310 LOAD_NAME               50 (ord)
+           1312 LOAD_CONST              26 ('q')
+           1314 CALL                     1
+           1322 COMPARE_OP              40 (==)
+           1326 POP_JUMP_IF_FALSE        1 (to 1330)
+
+ 58        1328 JUMP_FORWARD             2 (to 1334)
+
+ 16     >> 1330 EXTENDED_ARG             1
+           1332 JUMP_BACKWARD          499 (to 336)
+
+ 60     >> 1334 LOAD_NAME               11 (cap)
+           1336 LOAD_ATTR              103 (NULL|self + release)
+           1356 CALL                     0
+           1364 POP_TOP
+
+ 61        1366 LOAD_NAME                3 (cv2)
+           1368 LOAD_ATTR              105 (NULL|self + destroyAllWindows)
+           1388 CALL                     0
+           1396 POP_TOP
+           1398 RETURN_CONST            27 (None)
