@@ -1,0 +1,139 @@
+import cv2
+import os
+from PIL import Image, ImageDraw, ImageFont
+
+# Setup
+output_dir = "output"
+os.makedirs(output_dir, exist_ok=True)
+max_photos = 3
+face_count = eye_count = mouth_count = 0
+
+# Load Haar cascades
+
+face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
+eye_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_righteye_2splits.xml')
+mouth_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_smile.xml')
+# Schema generation function
+generated_schemas = {
+    "face": False,
+    "eye": False,
+    "mouth": False
+}
+from PIL import Image, ImageDraw, ImageFont
+
+def generate_detection_schema(output_path, feature="face", image_path=None):
+    # Create a blank image
+    width, height = 800, 300
+    img = Image.new("RGB", (width, height), color=(255, 255, 255))
+    draw = ImageDraw.Draw(img)
+
+    # Load a font
+    try:
+        font = ImageFont.truetype("arial.ttf", 16)
+    except:
+        font = ImageFont.load_default()
+
+    # Box labels
+    labels = ["Image", "High-level Code", "C Code", "Assembly", "Machine Code"]
+    box_w = 180
+    box_h = 80
+    spacing = 20
+
+    for i, label in enumerate(labels):
+        x = i * (box_w + spacing) + spacing
+        y = (height - box_h) // 2
+        draw.rectangle([x, y, x + box_w, y + box_h], outline="black", width=2)
+        draw.text((x + 10, y + 10), label, fill="black", font=font)
+
+    # If we have an image, embed it in the Image box
+    if image_path and os.path.exists(image_path):
+        part_img = Image.open(image_path).resize((box_w - 20, box_h - 30))
+        img.paste(part_img, (spacing + 10, (height - box_h) // 2 + 30))
+
+    # Save the result
+    img.save(output_path)
+
+
+# Start webcam
+cap = cv2.VideoCapture(0)
+
+while True:
+    ret, frame = cap.read()
+    if not ret:
+        break
+
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+
+    # Detect faces
+    faces = face_cascade.detectMultiScale(gray, 1.3, 5)
+    for (x, y, w, h) in faces:
+        roi_gray = gray[y:y + h, x:x + w]
+        roi_color = frame[y:y + h, x:x + w]
+
+        if face_count < max_photos:
+            face_img = cv2.rectangle(frame.copy(), (x, y), (x + w, y + h), (255, 0, 0), 2)
+            face_path = f"{output_dir}/face_{face_count}.jpg"
+            cv2.imwrite(face_path, face_img)
+            if not generated_schemas["face"]:
+                schema_path = f"{output_dir}/face_schema.png"
+                generate_detection_schema(schema_path, feature="face", image_path=face_path)
+                schema_img = cv2.imread(schema_path)
+                cv2.imshow("Face Schema", schema_img)
+                generated_schemas["face"] = True
+            face_count += 1
+
+        # Detect eyes
+        eyes = eye_cascade.detectMultiScale(roi_gray, 1.1, 10)
+        for i, (ex, ey, ew, eh) in enumerate(eyes):
+            if eye_count < max_photos:
+                eye_img = roi_color[ey:ey + eh, ex:ex + ew]
+                eye_path = f"{output_dir}/eye_{eye_count}.jpg"
+                cv2.imwrite(eye_path, eye_img)
+                if not generated_schemas["eye"]:
+                    schema_path = f"{output_dir}/eye_schema.png"
+                    generate_detection_schema(schema_path, feature="eye",image_path=eye_path)
+                    schema_img = cv2.imread(schema_path)
+                    cv2.imshow("Eye Schema", schema_img)
+                    generated_schemas["eye"] = True
+                eye_count += 1
+                break
+
+        # Detect mouth
+        mouths = mouth_cascade.detectMultiScale(roi_gray, 1.5, 11)
+        for (mx, my, mw, mh) in mouths:
+            if my > h / 2 and mouth_count < max_photos:
+                mouth_img = roi_color[my:my + mh, mx:mx + mw]
+                mouth_path = f"{output_dir}/mouth_{mouth_count}.jpg"
+                cv2.imwrite(mouth_path, mouth_img)
+                if not generated_schemas["mouth"]:
+                    schema_path=f"{output_dir}/mouth_schema.jpg"
+                    generate_detection_schema(schema_path, feature="mouth",image_path=mouth_path)
+                    schema_img = cv2.imread(schema_path)
+                    cv2.imshow("Mouth Schema", schema_img)
+                    generated_schemas["mouth"] = True
+                mouth_count += 1
+                break
+
+    cv2.imshow('Face, Eyes and Mouth Detection', frame)
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+
+cap.release()
+
+
+def export_to_pdf(image_folder, pdf_path):
+    image_files = sorted([
+        f for f in os.listdir(image_folder) if f.endswith((".jpg", ".png"))
+    ])
+
+    images = [Image.open(os.path.join(image_folder, f)).convert("RGB") for f in image_files]
+    if images:
+        images[0].save(pdf_path, save_all=True, append_images=images[1:])
+        print(f"[✓] PDF exported to: {pdf_path}")
+    else:
+        print("[!] No images found to export.")
+
+
+cv2.destroyAllWindows()
+export_to_pdf(output_dir, os.path.join(output_dir, "Detection_Report.pdf"))
+
