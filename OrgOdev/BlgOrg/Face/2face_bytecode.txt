@@ -1,0 +1,1076 @@
+  0           0 RESUME                   0
+
+  1           2 PUSH_NULL
+              4 LOAD_NAME                0 (Module)
+
+  3           6 PUSH_NULL
+              8 LOAD_NAME                1 (Assign)
+
+  5          10 PUSH_NULL
+             12 LOAD_NAME                2 (Name)
+             14 LOAD_CONST               0 ('faces')
+             16 PUSH_NULL
+             18 LOAD_NAME                3 (Store)
+             20 CALL                     0
+             28 KW_NAMES                 1 (('id', 'ctx'))
+             30 CALL                     2
+
+  4          38 BUILD_LIST               1
+
+  6          40 PUSH_NULL
+             42 LOAD_NAME                4 (Call)
+
+  7          44 PUSH_NULL
+             46 LOAD_NAME                5 (Attribute)
+
+  8          48 PUSH_NULL
+             50 LOAD_NAME                2 (Name)
+             52 LOAD_CONST               2 ('face_cascade')
+             54 PUSH_NULL
+             56 LOAD_NAME                6 (Load)
+             58 CALL                     0
+             66 KW_NAMES                 1 (('id', 'ctx'))
+             68 CALL                     2
+
+  9          76 LOAD_CONST               3 ('detectMultiScale')
+
+ 10          78 PUSH_NULL
+             80 LOAD_NAME                6 (Load)
+             82 CALL                     0
+
+  7          90 KW_NAMES                 4 (('value', 'attr', 'ctx'))
+             92 CALL                     3
+
+ 12         100 PUSH_NULL
+            102 LOAD_NAME                2 (Name)
+            104 LOAD_CONST               5 ('gray')
+            106 PUSH_NULL
+            108 LOAD_NAME                6 (Load)
+            110 CALL                     0
+            118 KW_NAMES                 1 (('id', 'ctx'))
+            120 CALL                     2
+
+ 13         128 PUSH_NULL
+            130 LOAD_NAME                7 (Constant)
+            132 LOAD_CONST               6 (1.3)
+            134 KW_NAMES                 7 (('value',))
+            136 CALL                     1
+
+ 14         144 PUSH_NULL
+            146 LOAD_NAME                7 (Constant)
+            148 LOAD_CONST               8 (5)
+            150 KW_NAMES                 7 (('value',))
+            152 CALL                     1
+
+ 11         160 BUILD_LIST               3
+
+ 15         162 BUILD_LIST               0
+
+  6         164 KW_NAMES                 9 (('func', 'args', 'keywords'))
+            166 CALL                     3
+
+  3         174 KW_NAMES                10 (('targets', 'value'))
+            176 CALL                     2
+
+ 16         184 PUSH_NULL
+            186 LOAD_NAME                8 (For)
+
+ 17         188 PUSH_NULL
+            190 LOAD_NAME                9 (Tuple)
+
+ 19         192 PUSH_NULL
+            194 LOAD_NAME                2 (Name)
+            196 LOAD_CONST              11 ('x')
+            198 PUSH_NULL
+            200 LOAD_NAME                3 (Store)
+            202 CALL                     0
+            210 KW_NAMES                 1 (('id', 'ctx'))
+            212 CALL                     2
+
+ 20         220 PUSH_NULL
+            222 LOAD_NAME                2 (Name)
+            224 LOAD_CONST              12 ('y')
+            226 PUSH_NULL
+            228 LOAD_NAME                3 (Store)
+            230 CALL                     0
+            238 KW_NAMES                 1 (('id', 'ctx'))
+            240 CALL                     2
+
+ 21         248 PUSH_NULL
+            250 LOAD_NAME                2 (Name)
+            252 LOAD_CONST              13 ('w')
+            254 PUSH_NULL
+            256 LOAD_NAME                3 (Store)
+            258 CALL                     0
+            266 KW_NAMES                 1 (('id', 'ctx'))
+            268 CALL                     2
+
+ 22         276 PUSH_NULL
+            278 LOAD_NAME                2 (Name)
+            280 LOAD_CONST              14 ('h')
+            282 PUSH_NULL
+            284 LOAD_NAME                3 (Store)
+            286 CALL                     0
+            294 KW_NAMES                 1 (('id', 'ctx'))
+            296 CALL                     2
+
+ 18         304 BUILD_LIST               4
+
+ 23         306 PUSH_NULL
+            308 LOAD_NAME                3 (Store)
+            310 CALL                     0
+
+ 17         318 KW_NAMES                15 (('elts', 'ctx'))
+            320 CALL                     2
+
+ 24         328 PUSH_NULL
+            330 LOAD_NAME                2 (Name)
+            332 LOAD_CONST               0 ('faces')
+            334 PUSH_NULL
+            336 LOAD_NAME                6 (Load)
+            338 CALL                     0
+            346 KW_NAMES                 1 (('id', 'ctx'))
+            348 CALL                     2
+
+ 26         356 PUSH_NULL
+            358 LOAD_NAME                1 (Assign)
+
+ 28         360 PUSH_NULL
+            362 LOAD_NAME                2 (Name)
+            364 LOAD_CONST              16 ('roi_gray')
+            366 PUSH_NULL
+            368 LOAD_NAME                3 (Store)
+            370 CALL                     0
+            378 KW_NAMES                 1 (('id', 'ctx'))
+            380 CALL                     2
+
+ 27         388 BUILD_LIST               1
+
+ 29         390 PUSH_NULL
+            392 LOAD_NAME               10 (Subscript)
+
+ 30         394 PUSH_NULL
+            396 LOAD_NAME                2 (Name)
+            398 LOAD_CONST               5 ('gray')
+            400 PUSH_NULL
+            402 LOAD_NAME                6 (Load)
+            404 CALL                     0
+            412 KW_NAMES                 1 (('id', 'ctx'))
+            414 CALL                     2
+
+ 31         422 PUSH_NULL
+            424 LOAD_NAME                9 (Tuple)
+
+ 33         426 PUSH_NULL
+            428 LOAD_NAME               11 (Slice)
+
+ 34         430 PUSH_NULL
+            432 LOAD_NAME                2 (Name)
+            434 LOAD_CONST              12 ('y')
+            436 PUSH_NULL
+            438 LOAD_NAME                6 (Load)
+            440 CALL                     0
+            448 KW_NAMES                 1 (('id', 'ctx'))
+            450 CALL                     2
+
+ 35         458 PUSH_NULL
+            460 LOAD_NAME               12 (BinOp)
+
+ 36         462 PUSH_NULL
+            464 LOAD_NAME                2 (Name)
+            466 LOAD_CONST              12 ('y')
+            468 PUSH_NULL
+            470 LOAD_NAME                6 (Load)
+            472 CALL                     0
+            480 KW_NAMES                 1 (('id', 'ctx'))
+            482 CALL                     2
+
+ 37         490 PUSH_NULL
+            492 LOAD_NAME               13 (Add)
+            494 CALL                     0
+
+ 38         502 PUSH_NULL
+            504 LOAD_NAME                2 (Name)
+            506 LOAD_CONST              14 ('h')
+            508 PUSH_NULL
+            510 LOAD_NAME                6 (Load)
+            512 CALL                     0
+            520 KW_NAMES                 1 (('id', 'ctx'))
+            522 CALL                     2
+
+ 35         530 KW_NAMES                17 (('left', 'op', 'right'))
+            532 CALL                     3
+
+ 33         540 KW_NAMES                18 (('lower', 'upper'))
+            542 CALL                     2
+
+ 39         550 PUSH_NULL
+            552 LOAD_NAME               11 (Slice)
+
+ 40         554 PUSH_NULL
+            556 LOAD_NAME                2 (Name)
+            558 LOAD_CONST              11 ('x')
+            560 PUSH_NULL
+            562 LOAD_NAME                6 (Load)
+            564 CALL                     0
+            572 KW_NAMES                 1 (('id', 'ctx'))
+            574 CALL                     2
+
+ 41         582 PUSH_NULL
+            584 LOAD_NAME               12 (BinOp)
+
+ 42         586 PUSH_NULL
+            588 LOAD_NAME                2 (Name)
+            590 LOAD_CONST              11 ('x')
+            592 PUSH_NULL
+            594 LOAD_NAME                6 (Load)
+            596 CALL                     0
+            604 KW_NAMES                 1 (('id', 'ctx'))
+            606 CALL                     2
+
+ 43         614 PUSH_NULL
+            616 LOAD_NAME               13 (Add)
+            618 CALL                     0
+
+ 44         626 PUSH_NULL
+            628 LOAD_NAME                2 (Name)
+            630 LOAD_CONST              13 ('w')
+            632 PUSH_NULL
+            634 LOAD_NAME                6 (Load)
+            636 CALL                     0
+            644 KW_NAMES                 1 (('id', 'ctx'))
+            646 CALL                     2
+
+ 41         654 KW_NAMES                17 (('left', 'op', 'right'))
+            656 CALL                     3
+
+ 39         664 KW_NAMES                18 (('lower', 'upper'))
+            666 CALL                     2
+
+ 32         674 BUILD_LIST               2
+
+ 45         676 PUSH_NULL
+            678 LOAD_NAME                6 (Load)
+            680 CALL                     0
+
+ 31         688 KW_NAMES                15 (('elts', 'ctx'))
+            690 CALL                     2
+
+ 46         698 PUSH_NULL
+            700 LOAD_NAME                6 (Load)
+            702 CALL                     0
+
+ 29         710 KW_NAMES                19 (('value', 'slice', 'ctx'))
+            712 CALL                     3
+
+ 26         720 KW_NAMES                10 (('targets', 'value'))
+            722 CALL                     2
+
+ 47         730 PUSH_NULL
+            732 LOAD_NAME                1 (Assign)
+
+ 49         734 PUSH_NULL
+            736 LOAD_NAME                2 (Name)
+            738 LOAD_CONST              20 ('roi_color')
+            740 PUSH_NULL
+            742 LOAD_NAME                3 (Store)
+            744 CALL                     0
+            752 KW_NAMES                 1 (('id', 'ctx'))
+            754 CALL                     2
+
+ 48         762 BUILD_LIST               1
+
+ 50         764 PUSH_NULL
+            766 LOAD_NAME               10 (Subscript)
+
+ 51         768 PUSH_NULL
+            770 LOAD_NAME                2 (Name)
+            772 LOAD_CONST              21 ('frame')
+            774 PUSH_NULL
+            776 LOAD_NAME                6 (Load)
+            778 CALL                     0
+            786 KW_NAMES                 1 (('id', 'ctx'))
+            788 CALL                     2
+
+ 52         796 PUSH_NULL
+            798 LOAD_NAME                9 (Tuple)
+
+ 54         800 PUSH_NULL
+            802 LOAD_NAME               11 (Slice)
+
+ 55         804 PUSH_NULL
+            806 LOAD_NAME                2 (Name)
+            808 LOAD_CONST              12 ('y')
+            810 PUSH_NULL
+            812 LOAD_NAME                6 (Load)
+            814 CALL                     0
+            822 KW_NAMES                 1 (('id', 'ctx'))
+            824 CALL                     2
+
+ 56         832 PUSH_NULL
+            834 LOAD_NAME               12 (BinOp)
+
+ 57         836 PUSH_NULL
+            838 LOAD_NAME                2 (Name)
+            840 LOAD_CONST              12 ('y')
+            842 PUSH_NULL
+            844 LOAD_NAME                6 (Load)
+            846 CALL                     0
+            854 KW_NAMES                 1 (('id', 'ctx'))
+            856 CALL                     2
+
+ 58         864 PUSH_NULL
+            866 LOAD_NAME               13 (Add)
+            868 CALL                     0
+
+ 59         876 PUSH_NULL
+            878 LOAD_NAME                2 (Name)
+            880 LOAD_CONST              14 ('h')
+            882 PUSH_NULL
+            884 LOAD_NAME                6 (Load)
+            886 CALL                     0
+            894 KW_NAMES                 1 (('id', 'ctx'))
+            896 CALL                     2
+
+ 56         904 KW_NAMES                17 (('left', 'op', 'right'))
+            906 CALL                     3
+
+ 54         914 KW_NAMES                18 (('lower', 'upper'))
+            916 CALL                     2
+
+ 60         924 PUSH_NULL
+            926 LOAD_NAME               11 (Slice)
+
+ 61         928 PUSH_NULL
+            930 LOAD_NAME                2 (Name)
+            932 LOAD_CONST              11 ('x')
+            934 PUSH_NULL
+            936 LOAD_NAME                6 (Load)
+            938 CALL                     0
+            946 KW_NAMES                 1 (('id', 'ctx'))
+            948 CALL                     2
+
+ 62         956 PUSH_NULL
+            958 LOAD_NAME               12 (BinOp)
+
+ 63         960 PUSH_NULL
+            962 LOAD_NAME                2 (Name)
+            964 LOAD_CONST              11 ('x')
+            966 PUSH_NULL
+            968 LOAD_NAME                6 (Load)
+            970 CALL                     0
+            978 KW_NAMES                 1 (('id', 'ctx'))
+            980 CALL                     2
+
+ 64         988 PUSH_NULL
+            990 LOAD_NAME               13 (Add)
+            992 CALL                     0
+
+ 65        1000 PUSH_NULL
+           1002 LOAD_NAME                2 (Name)
+           1004 LOAD_CONST              13 ('w')
+           1006 PUSH_NULL
+           1008 LOAD_NAME                6 (Load)
+           1010 CALL                     0
+           1018 KW_NAMES                 1 (('id', 'ctx'))
+           1020 CALL                     2
+
+ 62        1028 KW_NAMES                17 (('left', 'op', 'right'))
+           1030 CALL                     3
+
+ 60        1038 KW_NAMES                18 (('lower', 'upper'))
+           1040 CALL                     2
+
+ 53        1048 BUILD_LIST               2
+
+ 66        1050 PUSH_NULL
+           1052 LOAD_NAME                6 (Load)
+           1054 CALL                     0
+
+ 52        1062 KW_NAMES                15 (('elts', 'ctx'))
+           1064 CALL                     2
+
+ 67        1072 PUSH_NULL
+           1074 LOAD_NAME                6 (Load)
+           1076 CALL                     0
+
+ 50        1084 KW_NAMES                19 (('value', 'slice', 'ctx'))
+           1086 CALL                     3
+
+ 47        1094 KW_NAMES                10 (('targets', 'value'))
+           1096 CALL                     2
+
+ 68        1104 PUSH_NULL
+           1106 LOAD_NAME               14 (If)
+
+ 69        1108 PUSH_NULL
+           1110 LOAD_NAME               15 (Compare)
+
+ 70        1112 PUSH_NULL
+           1114 LOAD_NAME                2 (Name)
+           1116 LOAD_CONST              22 ('face_count')
+           1118 PUSH_NULL
+           1120 LOAD_NAME                6 (Load)
+           1122 CALL                     0
+           1130 KW_NAMES                 1 (('id', 'ctx'))
+           1132 CALL                     2
+
+ 72        1140 PUSH_NULL
+           1142 LOAD_NAME               16 (Lt)
+           1144 CALL                     0
+
+ 71        1152 BUILD_LIST               1
+
+ 74        1154 PUSH_NULL
+           1156 LOAD_NAME                2 (Name)
+           1158 LOAD_CONST              23 ('max_photos')
+           1160 PUSH_NULL
+           1162 LOAD_NAME                6 (Load)
+           1164 CALL                     0
+           1172 KW_NAMES                 1 (('id', 'ctx'))
+           1174 CALL                     2
+
+ 73        1182 BUILD_LIST               1
+
+ 69        1184 KW_NAMES                24 (('left', 'ops', 'comparators'))
+           1186 CALL                     3
+
+ 76        1194 PUSH_NULL
+           1196 LOAD_NAME                1 (Assign)
+
+ 78        1198 PUSH_NULL
+           1200 LOAD_NAME                2 (Name)
+           1202 LOAD_CONST              25 ('face_img')
+           1204 PUSH_NULL
+           1206 LOAD_NAME                3 (Store)
+           1208 CALL                     0
+           1216 KW_NAMES                 1 (('id', 'ctx'))
+           1218 CALL                     2
+
+ 77        1226 BUILD_LIST               1
+
+ 79        1228 PUSH_NULL
+           1230 LOAD_NAME                4 (Call)
+
+ 80        1232 PUSH_NULL
+           1234 LOAD_NAME                5 (Attribute)
+
+ 81        1236 PUSH_NULL
+           1238 LOAD_NAME                2 (Name)
+           1240 LOAD_CONST              26 ('cv2')
+           1242 PUSH_NULL
+           1244 LOAD_NAME                6 (Load)
+           1246 CALL                     0
+           1254 KW_NAMES                 1 (('id', 'ctx'))
+           1256 CALL                     2
+
+ 82        1264 LOAD_CONST              27 ('rectangle')
+
+ 83        1266 PUSH_NULL
+           1268 LOAD_NAME                6 (Load)
+           1270 CALL                     0
+
+ 80        1278 KW_NAMES                 4 (('value', 'attr', 'ctx'))
+           1280 CALL                     3
+
+ 85        1288 PUSH_NULL
+           1290 LOAD_NAME                4 (Call)
+
+ 86        1292 PUSH_NULL
+           1294 LOAD_NAME                5 (Attribute)
+
+ 87        1296 PUSH_NULL
+           1298 LOAD_NAME                2 (Name)
+           1300 LOAD_CONST              21 ('frame')
+           1302 PUSH_NULL
+           1304 LOAD_NAME                6 (Load)
+           1306 CALL                     0
+           1314 KW_NAMES                 1 (('id', 'ctx'))
+           1316 CALL                     2
+
+ 88        1324 LOAD_CONST              28 ('copy')
+
+ 89        1326 PUSH_NULL
+           1328 LOAD_NAME                6 (Load)
+           1330 CALL                     0
+
+ 86        1338 KW_NAMES                 4 (('value', 'attr', 'ctx'))
+           1340 CALL                     3
+
+ 90        1348 BUILD_LIST               0
+
+ 91        1350 BUILD_LIST               0
+
+ 85        1352 KW_NAMES                 9 (('func', 'args', 'keywords'))
+           1354 CALL                     3
+
+ 92        1362 PUSH_NULL
+           1364 LOAD_NAME                9 (Tuple)
+
+ 94        1366 PUSH_NULL
+           1368 LOAD_NAME                2 (Name)
+           1370 LOAD_CONST              11 ('x')
+           1372 PUSH_NULL
+           1374 LOAD_NAME                6 (Load)
+           1376 CALL                     0
+           1384 KW_NAMES                 1 (('id', 'ctx'))
+           1386 CALL                     2
+
+ 95        1394 PUSH_NULL
+           1396 LOAD_NAME                2 (Name)
+           1398 LOAD_CONST              12 ('y')
+           1400 PUSH_NULL
+           1402 LOAD_NAME                6 (Load)
+           1404 CALL                     0
+           1412 KW_NAMES                 1 (('id', 'ctx'))
+           1414 CALL                     2
+
+ 93        1422 BUILD_LIST               2
+
+ 96        1424 PUSH_NULL
+           1426 LOAD_NAME                6 (Load)
+           1428 CALL                     0
+
+ 92        1436 KW_NAMES                15 (('elts', 'ctx'))
+           1438 CALL                     2
+
+ 97        1446 PUSH_NULL
+           1448 LOAD_NAME                9 (Tuple)
+
+ 99        1450 PUSH_NULL
+           1452 LOAD_NAME               12 (BinOp)
+
+100        1454 PUSH_NULL
+           1456 LOAD_NAME                2 (Name)
+           1458 LOAD_CONST              11 ('x')
+           1460 PUSH_NULL
+           1462 LOAD_NAME                6 (Load)
+           1464 CALL                     0
+           1472 KW_NAMES                 1 (('id', 'ctx'))
+           1474 CALL                     2
+
+101        1482 PUSH_NULL
+           1484 LOAD_NAME               13 (Add)
+           1486 CALL                     0
+
+102        1494 PUSH_NULL
+           1496 LOAD_NAME                2 (Name)
+           1498 LOAD_CONST              13 ('w')
+           1500 PUSH_NULL
+           1502 LOAD_NAME                6 (Load)
+           1504 CALL                     0
+           1512 KW_NAMES                 1 (('id', 'ctx'))
+           1514 CALL                     2
+
+ 99        1522 KW_NAMES                17 (('left', 'op', 'right'))
+           1524 CALL                     3
+
+103        1532 PUSH_NULL
+           1534 LOAD_NAME               12 (BinOp)
+
+104        1536 PUSH_NULL
+           1538 LOAD_NAME                2 (Name)
+           1540 LOAD_CONST              12 ('y')
+           1542 PUSH_NULL
+           1544 LOAD_NAME                6 (Load)
+           1546 CALL                     0
+           1554 KW_NAMES                 1 (('id', 'ctx'))
+           1556 CALL                     2
+
+105        1564 PUSH_NULL
+           1566 LOAD_NAME               13 (Add)
+           1568 CALL                     0
+
+106        1576 PUSH_NULL
+           1578 LOAD_NAME                2 (Name)
+           1580 LOAD_CONST              14 ('h')
+           1582 PUSH_NULL
+           1584 LOAD_NAME                6 (Load)
+           1586 CALL                     0
+           1594 KW_NAMES                 1 (('id', 'ctx'))
+           1596 CALL                     2
+
+103        1604 KW_NAMES                17 (('left', 'op', 'right'))
+           1606 CALL                     3
+
+ 98        1614 BUILD_LIST               2
+
+107        1616 PUSH_NULL
+           1618 LOAD_NAME                6 (Load)
+           1620 CALL                     0
+
+ 97        1628 KW_NAMES                15 (('elts', 'ctx'))
+           1630 CALL                     2
+
+108        1638 PUSH_NULL
+           1640 LOAD_NAME                9 (Tuple)
+
+110        1642 PUSH_NULL
+           1644 LOAD_NAME                7 (Constant)
+           1646 LOAD_CONST              29 (255)
+           1648 KW_NAMES                 7 (('value',))
+           1650 CALL                     1
+
+111        1658 PUSH_NULL
+           1660 LOAD_NAME                7 (Constant)
+           1662 LOAD_CONST              30 (0)
+           1664 KW_NAMES                 7 (('value',))
+           1666 CALL                     1
+
+112        1674 PUSH_NULL
+           1676 LOAD_NAME                7 (Constant)
+           1678 LOAD_CONST              30 (0)
+           1680 KW_NAMES                 7 (('value',))
+           1682 CALL                     1
+
+109        1690 BUILD_LIST               3
+
+113        1692 PUSH_NULL
+           1694 LOAD_NAME                6 (Load)
+           1696 CALL                     0
+
+108        1704 KW_NAMES                15 (('elts', 'ctx'))
+           1706 CALL                     2
+
+114        1714 PUSH_NULL
+           1716 LOAD_NAME                7 (Constant)
+           1718 LOAD_CONST              31 (2)
+           1720 KW_NAMES                 7 (('value',))
+           1722 CALL                     1
+
+ 84        1730 BUILD_LIST               5
+
+115        1732 BUILD_LIST               0
+
+ 79        1734 KW_NAMES                 9 (('func', 'args', 'keywords'))
+           1736 CALL                     3
+
+ 76        1744 KW_NAMES                10 (('targets', 'value'))
+           1746 CALL                     2
+
+116        1754 PUSH_NULL
+           1756 LOAD_NAME                1 (Assign)
+
+118        1758 PUSH_NULL
+           1760 LOAD_NAME                2 (Name)
+           1762 LOAD_CONST              32 ('face_path')
+           1764 PUSH_NULL
+           1766 LOAD_NAME                3 (Store)
+           1768 CALL                     0
+           1776 KW_NAMES                 1 (('id', 'ctx'))
+           1778 CALL                     2
+
+117        1786 BUILD_LIST               1
+
+119        1788 PUSH_NULL
+           1790 LOAD_NAME               17 (JoinedStr)
+
+121        1792 PUSH_NULL
+           1794 LOAD_NAME               18 (FormattedValue)
+
+122        1796 PUSH_NULL
+           1798 LOAD_NAME                2 (Name)
+           1800 LOAD_CONST              33 ('output_dir')
+           1802 PUSH_NULL
+           1804 LOAD_NAME                6 (Load)
+           1806 CALL                     0
+           1814 KW_NAMES                 1 (('id', 'ctx'))
+           1816 CALL                     2
+
+123        1824 LOAD_CONST              34 (-1)
+
+121        1826 KW_NAMES                35 (('value', 'conversion'))
+           1828 CALL                     2
+
+124        1836 PUSH_NULL
+           1838 LOAD_NAME                7 (Constant)
+           1840 LOAD_CONST              36 ('/face_')
+           1842 KW_NAMES                 7 (('value',))
+           1844 CALL                     1
+
+125        1852 PUSH_NULL
+           1854 LOAD_NAME               18 (FormattedValue)
+
+126        1856 PUSH_NULL
+           1858 LOAD_NAME                2 (Name)
+           1860 LOAD_CONST              22 ('face_count')
+           1862 PUSH_NULL
+           1864 LOAD_NAME                6 (Load)
+           1866 CALL                     0
+           1874 KW_NAMES                 1 (('id', 'ctx'))
+           1876 CALL                     2
+
+127        1884 LOAD_CONST              34 (-1)
+
+125        1886 KW_NAMES                35 (('value', 'conversion'))
+           1888 CALL                     2
+
+128        1896 PUSH_NULL
+           1898 LOAD_NAME                7 (Constant)
+           1900 LOAD_CONST              37 ('.jpg')
+           1902 KW_NAMES                 7 (('value',))
+           1904 CALL                     1
+
+120        1912 BUILD_LIST               4
+
+119        1914 KW_NAMES                38 (('values',))
+           1916 CALL                     1
+
+116        1924 KW_NAMES                10 (('targets', 'value'))
+           1926 CALL                     2
+
+129        1934 PUSH_NULL
+           1936 LOAD_NAME               19 (Expr)
+
+130        1938 PUSH_NULL
+           1940 LOAD_NAME                4 (Call)
+
+131        1942 PUSH_NULL
+           1944 LOAD_NAME                5 (Attribute)
+
+132        1946 PUSH_NULL
+           1948 LOAD_NAME                2 (Name)
+           1950 LOAD_CONST              26 ('cv2')
+           1952 PUSH_NULL
+           1954 LOAD_NAME                6 (Load)
+           1956 CALL                     0
+           1964 KW_NAMES                 1 (('id', 'ctx'))
+           1966 CALL                     2
+
+133        1974 LOAD_CONST              39 ('imwrite')
+
+134        1976 PUSH_NULL
+           1978 LOAD_NAME                6 (Load)
+           1980 CALL                     0
+
+131        1988 KW_NAMES                 4 (('value', 'attr', 'ctx'))
+           1990 CALL                     3
+
+136        1998 PUSH_NULL
+           2000 LOAD_NAME                2 (Name)
+           2002 LOAD_CONST              32 ('face_path')
+           2004 PUSH_NULL
+           2006 LOAD_NAME                6 (Load)
+           2008 CALL                     0
+           2016 KW_NAMES                 1 (('id', 'ctx'))
+           2018 CALL                     2
+
+137        2026 PUSH_NULL
+           2028 LOAD_NAME                2 (Name)
+           2030 LOAD_CONST              25 ('face_img')
+           2032 PUSH_NULL
+           2034 LOAD_NAME                6 (Load)
+           2036 CALL                     0
+           2044 KW_NAMES                 1 (('id', 'ctx'))
+           2046 CALL                     2
+
+135        2054 BUILD_LIST               2
+
+138        2056 BUILD_LIST               0
+
+130        2058 KW_NAMES                 9 (('func', 'args', 'keywords'))
+           2060 CALL                     3
+
+129        2068 KW_NAMES                 7 (('value',))
+           2070 CALL                     1
+
+139        2078 PUSH_NULL
+           2080 LOAD_NAME               14 (If)
+
+140        2082 PUSH_NULL
+           2084 LOAD_NAME               20 (UnaryOp)
+
+141        2086 PUSH_NULL
+           2088 LOAD_NAME               21 (Not)
+           2090 CALL                     0
+
+142        2098 PUSH_NULL
+           2100 LOAD_NAME               10 (Subscript)
+
+143        2102 PUSH_NULL
+           2104 LOAD_NAME                2 (Name)
+           2106 LOAD_CONST              40 ('generated_schemas')
+           2108 PUSH_NULL
+           2110 LOAD_NAME                6 (Load)
+           2112 CALL                     0
+           2120 KW_NAMES                 1 (('id', 'ctx'))
+           2122 CALL                     2
+
+144        2130 PUSH_NULL
+           2132 LOAD_NAME                7 (Constant)
+           2134 LOAD_CONST              41 ('face')
+           2136 KW_NAMES                 7 (('value',))
+           2138 CALL                     1
+
+145        2146 PUSH_NULL
+           2148 LOAD_NAME                6 (Load)
+           2150 CALL                     0
+
+142        2158 KW_NAMES                19 (('value', 'slice', 'ctx'))
+           2160 CALL                     3
+
+140        2168 KW_NAMES                42 (('op', 'operand'))
+           2170 CALL                     2
+
+147        2178 PUSH_NULL
+           2180 LOAD_NAME                1 (Assign)
+
+149        2182 PUSH_NULL
+           2184 LOAD_NAME                2 (Name)
+           2186 LOAD_CONST              43 ('schema_path')
+           2188 PUSH_NULL
+           2190 LOAD_NAME                3 (Store)
+           2192 CALL                     0
+           2200 KW_NAMES                 1 (('id', 'ctx'))
+           2202 CALL                     2
+
+148        2210 BUILD_LIST               1
+
+150        2212 PUSH_NULL
+           2214 LOAD_NAME               17 (JoinedStr)
+
+152        2216 PUSH_NULL
+           2218 LOAD_NAME               18 (FormattedValue)
+
+153        2220 PUSH_NULL
+           2222 LOAD_NAME                2 (Name)
+           2224 LOAD_CONST              33 ('output_dir')
+           2226 PUSH_NULL
+           2228 LOAD_NAME                6 (Load)
+           2230 CALL                     0
+           2238 KW_NAMES                 1 (('id', 'ctx'))
+           2240 CALL                     2
+
+154        2248 LOAD_CONST              34 (-1)
+
+152        2250 KW_NAMES                35 (('value', 'conversion'))
+           2252 CALL                     2
+
+155        2260 PUSH_NULL
+           2262 LOAD_NAME                7 (Constant)
+           2264 LOAD_CONST              44 ('/face_schema.png')
+           2266 KW_NAMES                 7 (('value',))
+           2268 CALL                     1
+
+151        2276 BUILD_LIST               2
+
+150        2278 KW_NAMES                38 (('values',))
+           2280 CALL                     1
+
+147        2288 KW_NAMES                10 (('targets', 'value'))
+           2290 CALL                     2
+
+156        2298 PUSH_NULL
+           2300 LOAD_NAME               19 (Expr)
+
+157        2302 PUSH_NULL
+           2304 LOAD_NAME                4 (Call)
+
+158        2306 PUSH_NULL
+           2308 LOAD_NAME                2 (Name)
+           2310 LOAD_CONST              45 ('generate_detection_schema')
+           2312 PUSH_NULL
+           2314 LOAD_NAME                6 (Load)
+           2316 CALL                     0
+           2324 KW_NAMES                 1 (('id', 'ctx'))
+           2326 CALL                     2
+
+160        2334 PUSH_NULL
+           2336 LOAD_NAME                2 (Name)
+           2338 LOAD_CONST              43 ('schema_path')
+           2340 PUSH_NULL
+           2342 LOAD_NAME                6 (Load)
+           2344 CALL                     0
+           2352 KW_NAMES                 1 (('id', 'ctx'))
+           2354 CALL                     2
+
+159        2362 BUILD_LIST               1
+
+162        2364 PUSH_NULL
+           2366 LOAD_NAME               22 (keyword)
+
+163        2368 LOAD_CONST              46 ('feature')
+
+164        2370 PUSH_NULL
+           2372 LOAD_NAME                7 (Constant)
+           2374 LOAD_CONST              41 ('face')
+           2376 KW_NAMES                 7 (('value',))
+           2378 CALL                     1
+
+162        2386 KW_NAMES                47 (('arg', 'value'))
+           2388 CALL                     2
+
+165        2396 PUSH_NULL
+           2398 LOAD_NAME               22 (keyword)
+
+166        2400 LOAD_CONST              48 ('image_path')
+
+167        2402 PUSH_NULL
+           2404 LOAD_NAME                2 (Name)
+           2406 LOAD_CONST              32 ('face_path')
+           2408 PUSH_NULL
+           2410 LOAD_NAME                6 (Load)
+           2412 CALL                     0
+           2420 KW_NAMES                 1 (('id', 'ctx'))
+           2422 CALL                     2
+
+165        2430 KW_NAMES                47 (('arg', 'value'))
+           2432 CALL                     2
+
+161        2440 BUILD_LIST               2
+
+157        2442 KW_NAMES                 9 (('func', 'args', 'keywords'))
+           2444 CALL                     3
+
+156        2452 KW_NAMES                 7 (('value',))
+           2454 CALL                     1
+
+168        2462 PUSH_NULL
+           2464 LOAD_NAME                1 (Assign)
+
+170        2466 PUSH_NULL
+           2468 LOAD_NAME                2 (Name)
+           2470 LOAD_CONST              49 ('schema_img')
+           2472 PUSH_NULL
+           2474 LOAD_NAME                3 (Store)
+           2476 CALL                     0
+           2484 KW_NAMES                 1 (('id', 'ctx'))
+           2486 CALL                     2
+
+169        2494 BUILD_LIST               1
+
+171        2496 PUSH_NULL
+           2498 LOAD_NAME                4 (Call)
+
+172        2500 PUSH_NULL
+           2502 LOAD_NAME                5 (Attribute)
+
+173        2504 PUSH_NULL
+           2506 LOAD_NAME                2 (Name)
+           2508 LOAD_CONST              26 ('cv2')
+           2510 PUSH_NULL
+           2512 LOAD_NAME                6 (Load)
+           2514 CALL                     0
+           2522 KW_NAMES                 1 (('id', 'ctx'))
+           2524 CALL                     2
+
+174        2532 LOAD_CONST              50 ('imread')
+
+175        2534 PUSH_NULL
+           2536 LOAD_NAME                6 (Load)
+           2538 CALL                     0
+
+172        2546 KW_NAMES                 4 (('value', 'attr', 'ctx'))
+           2548 CALL                     3
+
+177        2556 PUSH_NULL
+           2558 LOAD_NAME                2 (Name)
+           2560 LOAD_CONST              43 ('schema_path')
+           2562 PUSH_NULL
+           2564 LOAD_NAME                6 (Load)
+           2566 CALL                     0
+           2574 KW_NAMES                 1 (('id', 'ctx'))
+           2576 CALL                     2
+
+176        2584 BUILD_LIST               1
+
+178        2586 BUILD_LIST               0
+
+171        2588 KW_NAMES                 9 (('func', 'args', 'keywords'))
+           2590 CALL                     3
+
+168        2598 KW_NAMES                10 (('targets', 'value'))
+           2600 CALL                     2
+
+179        2608 PUSH_NULL
+           2610 LOAD_NAME                1 (Assign)
+
+181        2612 PUSH_NULL
+           2614 LOAD_NAME               10 (Subscript)
+
+182        2616 PUSH_NULL
+           2618 LOAD_NAME                2 (Name)
+           2620 LOAD_CONST              40 ('generated_schemas')
+           2622 PUSH_NULL
+           2624 LOAD_NAME                6 (Load)
+           2626 CALL                     0
+           2634 KW_NAMES                 1 (('id', 'ctx'))
+           2636 CALL                     2
+
+183        2644 PUSH_NULL
+           2646 LOAD_NAME                7 (Constant)
+           2648 LOAD_CONST              41 ('face')
+           2650 KW_NAMES                 7 (('value',))
+           2652 CALL                     1
+
+184        2660 PUSH_NULL
+           2662 LOAD_NAME                3 (Store)
+           2664 CALL                     0
+
+181        2672 KW_NAMES                19 (('value', 'slice', 'ctx'))
+           2674 CALL                     3
+
+180        2682 BUILD_LIST               1
+
+185        2684 PUSH_NULL
+           2686 LOAD_NAME                7 (Constant)
+           2688 LOAD_CONST              51 (True)
+           2690 KW_NAMES                 7 (('value',))
+           2692 CALL                     1
+
+179        2700 KW_NAMES                10 (('targets', 'value'))
+           2702 CALL                     2
+
+146        2710 BUILD_LIST               4
+
+186        2712 BUILD_LIST               0
+
+139        2714 KW_NAMES                52 (('test', 'body', 'orelse'))
+           2716 CALL                     3
+
+187        2724 PUSH_NULL
+           2726 LOAD_NAME               23 (AugAssign)
+
+188        2728 PUSH_NULL
+           2730 LOAD_NAME                2 (Name)
+           2732 LOAD_CONST              22 ('face_count')
+           2734 PUSH_NULL
+           2736 LOAD_NAME                3 (Store)
+           2738 CALL                     0
+           2746 KW_NAMES                 1 (('id', 'ctx'))
+           2748 CALL                     2
+
+189        2756 PUSH_NULL
+           2758 LOAD_NAME               13 (Add)
+           2760 CALL                     0
+
+190        2768 PUSH_NULL
+           2770 LOAD_NAME                7 (Constant)
+           2772 LOAD_CONST              53 (1)
+           2774 KW_NAMES                 7 (('value',))
+           2776 CALL                     1
+
+187        2784 KW_NAMES                54 (('target', 'op', 'value'))
+           2786 CALL                     3
+
+ 75        2794 BUILD_LIST               5
+
+191        2796 BUILD_LIST               0
+
+ 68        2798 KW_NAMES                52 (('test', 'body', 'orelse'))
+           2800 CALL                     3
+
+ 25        2808 BUILD_LIST               3
+
+192        2810 BUILD_LIST               0
+
+ 16        2812 KW_NAMES                55 (('target', 'iter', 'body', 'orelse'))
+           2814 CALL                     4
+
+  2        2822 BUILD_LIST               2
+
+193        2824 BUILD_LIST               0
+
+  1        2826 KW_NAMES                56 (('body', 'type_ignores'))
+           2828 CALL                     2
+           2836 RETURN_VALUE

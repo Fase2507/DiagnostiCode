@@ -1,0 +1,193 @@
+Module(
+    body=[
+        Assign(
+            targets=[
+                Name(id='faces', ctx=Store())],
+            value=Call(
+                func=Attribute(
+                    value=Name(id='face_cascade', ctx=Load()),
+                    attr='detectMultiScale',
+                    ctx=Load()),
+                args=[
+                    Name(id='gray', ctx=Load()),
+                    Constant(value=1.3),
+                    Constant(value=5)],
+                keywords=[])),
+        For(
+            target=Tuple(
+                elts=[
+                    Name(id='x', ctx=Store()),
+                    Name(id='y', ctx=Store()),
+                    Name(id='w', ctx=Store()),
+                    Name(id='h', ctx=Store())],
+                ctx=Store()),
+            iter=Name(id='faces', ctx=Load()),
+            body=[
+                Assign(
+                    targets=[
+                        Name(id='roi_gray', ctx=Store())],
+                    value=Subscript(
+                        value=Name(id='gray', ctx=Load()),
+                        slice=Tuple(
+                            elts=[
+                                Slice(
+                                    lower=Name(id='y', ctx=Load()),
+                                    upper=BinOp(
+                                        left=Name(id='y', ctx=Load()),
+                                        op=Add(),
+                                        right=Name(id='h', ctx=Load()))),
+                                Slice(
+                                    lower=Name(id='x', ctx=Load()),
+                                    upper=BinOp(
+                                        left=Name(id='x', ctx=Load()),
+                                        op=Add(),
+                                        right=Name(id='w', ctx=Load())))],
+                            ctx=Load()),
+                        ctx=Load())),
+                Assign(
+                    targets=[
+                        Name(id='roi_color', ctx=Store())],
+                    value=Subscript(
+                        value=Name(id='frame', ctx=Load()),
+                        slice=Tuple(
+                            elts=[
+                                Slice(
+                                    lower=Name(id='y', ctx=Load()),
+                                    upper=BinOp(
+                                        left=Name(id='y', ctx=Load()),
+                                        op=Add(),
+                                        right=Name(id='h', ctx=Load()))),
+                                Slice(
+                                    lower=Name(id='x', ctx=Load()),
+                                    upper=BinOp(
+                                        left=Name(id='x', ctx=Load()),
+                                        op=Add(),
+                                        right=Name(id='w', ctx=Load())))],
+                            ctx=Load()),
+                        ctx=Load())),
+                If(
+                    test=Compare(
+                        left=Name(id='face_count', ctx=Load()),
+                        ops=[
+                            Lt()],
+                        comparators=[
+                            Name(id='max_photos', ctx=Load())]),
+                    body=[
+                        Assign(
+                            targets=[
+                                Name(id='face_img', ctx=Store())],
+                            value=Call(
+                                func=Attribute(
+                                    value=Name(id='cv2', ctx=Load()),
+                                    attr='rectangle',
+                                    ctx=Load()),
+                                args=[
+                                    Call(
+                                        func=Attribute(
+                                            value=Name(id='frame', ctx=Load()),
+                                            attr='copy',
+                                            ctx=Load()),
+                                        args=[],
+                                        keywords=[]),
+                                    Tuple(
+                                        elts=[
+                                            Name(id='x', ctx=Load()),
+                                            Name(id='y', ctx=Load())],
+                                        ctx=Load()),
+                                    Tuple(
+                                        elts=[
+                                            BinOp(
+                                                left=Name(id='x', ctx=Load()),
+                                                op=Add(),
+                                                right=Name(id='w', ctx=Load())),
+                                            BinOp(
+                                                left=Name(id='y', ctx=Load()),
+                                                op=Add(),
+                                                right=Name(id='h', ctx=Load()))],
+                                        ctx=Load()),
+                                    Tuple(
+                                        elts=[
+                                            Constant(value=255),
+                                            Constant(value=0),
+                                            Constant(value=0)],
+                                        ctx=Load()),
+                                    Constant(value=2)],
+                                keywords=[])),
+                        Assign(
+                            targets=[
+                                Name(id='face_path', ctx=Store())],
+                            value=JoinedStr(
+                                values=[
+                                    FormattedValue(
+                                        value=Name(id='output_dir', ctx=Load()),
+                                        conversion=-1),
+                                    Constant(value='/face_'),
+                                    FormattedValue(
+                                        value=Name(id='face_count', ctx=Load()),
+                                        conversion=-1),
+                                    Constant(value='.jpg')])),
+                        Expr(
+                            value=Call(
+                                func=Attribute(
+                                    value=Name(id='cv2', ctx=Load()),
+                                    attr='imwrite',
+                                    ctx=Load()),
+                                args=[
+                                    Name(id='face_path', ctx=Load()),
+                                    Name(id='face_img', ctx=Load())],
+                                keywords=[])),
+                        If(
+                            test=UnaryOp(
+                                op=Not(),
+                                operand=Subscript(
+                                    value=Name(id='generated_schemas', ctx=Load()),
+                                    slice=Constant(value='face'),
+                                    ctx=Load())),
+                            body=[
+                                Assign(
+                                    targets=[
+                                        Name(id='schema_path', ctx=Store())],
+                                    value=JoinedStr(
+                                        values=[
+                                            FormattedValue(
+                                                value=Name(id='output_dir', ctx=Load()),
+                                                conversion=-1),
+                                            Constant(value='/face_schema.png')])),
+                                Expr(
+                                    value=Call(
+                                        func=Name(id='generate_detection_schema', ctx=Load()),
+                                        args=[
+                                            Name(id='schema_path', ctx=Load())],
+                                        keywords=[
+                                            keyword(
+                                                arg='feature',
+                                                value=Constant(value='face')),
+                                            keyword(
+                                                arg='image_path',
+                                                value=Name(id='face_path', ctx=Load()))])),
+                                Assign(
+                                    targets=[
+                                        Name(id='schema_img', ctx=Store())],
+                                    value=Call(
+                                        func=Attribute(
+                                            value=Name(id='cv2', ctx=Load()),
+                                            attr='imread',
+                                            ctx=Load()),
+                                        args=[
+                                            Name(id='schema_path', ctx=Load())],
+                                        keywords=[])),
+                                Assign(
+                                    targets=[
+                                        Subscript(
+                                            value=Name(id='generated_schemas', ctx=Load()),
+                                            slice=Constant(value='face'),
+                                            ctx=Store())],
+                                    value=Constant(value=True))],
+                            orelse=[]),
+                        AugAssign(
+                            target=Name(id='face_count', ctx=Store()),
+                            op=Add(),
+                            value=Constant(value=1))],
+                    orelse=[])],
+            orelse=[])],
+    type_ignores=[])

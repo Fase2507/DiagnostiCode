@@ -1,0 +1,97 @@
+Module(
+    body=[
+        Assign(
+            targets=[
+                Name(id='mouths', ctx=Store())],
+            value=Call(
+                func=Attribute(
+                    value=Name(id='mouth_cascade', ctx=Load()),
+                    attr='detectMultiScale',
+                    ctx=Load()),
+                args=[
+                    Name(id='roi_gray', ctx=Load()),
+                    Constant(value=1.5),
+                    Constant(value=11)],
+                keywords=[])),
+        For(
+            target=Tuple(
+                elts=[
+                    Name(id='mx', ctx=Store()),
+                    Name(id='my', ctx=Store()),
+                    Name(id='mw', ctx=Store()),
+                    Name(id='mh', ctx=Store())],
+                ctx=Store()),
+            iter=Name(id='mouths', ctx=Load()),
+            body=[
+                If(
+                    test=BoolOp(
+                        op=And(),
+                        values=[
+                            Compare(
+                                left=Name(id='my', ctx=Load()),
+                                ops=[
+                                    Gt()],
+                                comparators=[
+                                    BinOp(
+                                        left=Name(id='h', ctx=Load()),
+                                        op=Div(),
+                                        right=Constant(value=2))]),
+                            Compare(
+                                left=Name(id='mouth_count', ctx=Load()),
+                                ops=[
+                                    Lt()],
+                                comparators=[
+                                    Name(id='max_photos', ctx=Load())])]),
+                    body=[
+                        Assign(
+                            targets=[
+                                Name(id='mouth_img', ctx=Store())],
+                            value=Subscript(
+                                value=Name(id='roi_color', ctx=Load()),
+                                slice=Tuple(
+                                    elts=[
+                                        Slice(
+                                            lower=Name(id='my', ctx=Load()),
+                                            upper=BinOp(
+                                                left=Name(id='my', ctx=Load()),
+                                                op=Add(),
+                                                right=Name(id='mh', ctx=Load()))),
+                                        Slice(
+                                            lower=Name(id='mx', ctx=Load()),
+                                            upper=BinOp(
+                                                left=Name(id='mx', ctx=Load()),
+                                                op=Add(),
+                                                right=Name(id='mw', ctx=Load())))],
+                                    ctx=Load()),
+                                ctx=Load())),
+                        Assign(
+                            targets=[
+                                Name(id='mouth_path', ctx=Store())],
+                            value=JoinedStr(
+                                values=[
+                                    FormattedValue(
+                                        value=Name(id='output_dir', ctx=Load()),
+                                        conversion=-1),
+                                    Constant(value='/mouth_'),
+                                    FormattedValue(
+                                        value=Name(id='mouth_count', ctx=Load()),
+                                        conversion=-1),
+                                    Constant(value='.jpg')])),
+                        Expr(
+                            value=Call(
+                                func=Attribute(
+                                    value=Name(id='cv2', ctx=Load()),
+                                    attr='imwrite',
+                                    ctx=Load()),
+                                args=[
+                                    Name(id='mouth_path', ctx=Load()),
+                                    Name(id='mouth_img', ctx=Load())],
+                                keywords=[])),
+                        AugAssign(
+                            target=Name(id='mouth_count', ctx=Store()),
+                            op=Add(),
+                            value=Constant(value=1)),
+                        Break()],
+                    orelse=[])],
+            orelse=[])],
+    type_ignores=[])

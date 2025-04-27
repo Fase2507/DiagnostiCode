@@ -1,0 +1,93 @@
+Module(
+    body=[
+        Assign(
+            targets=[
+                Name(id='eyes', ctx=Store())],
+            value=Call(
+                func=Attribute(
+                    value=Name(id='eye_cascade', ctx=Load()),
+                    attr='detectMultiScale',
+                    ctx=Load()),
+                args=[
+                    Name(id='roi_gray', ctx=Load()),
+                    Constant(value=1.1),
+                    Constant(value=10)],
+                keywords=[])),
+        For(
+            target=Tuple(
+                elts=[
+                    Name(id='i', ctx=Store()),
+                    Tuple(
+                        elts=[
+                            Name(id='ex', ctx=Store()),
+                            Name(id='ey', ctx=Store()),
+                            Name(id='ew', ctx=Store()),
+                            Name(id='eh', ctx=Store())],
+                        ctx=Store())],
+                ctx=Store()),
+            iter=Call(
+                func=Name(id='enumerate', ctx=Load()),
+                args=[
+                    Name(id='eyes', ctx=Load())],
+                keywords=[]),
+            body=[
+                If(
+                    test=Compare(
+                        left=Name(id='eye_count', ctx=Load()),
+                        ops=[
+                            Lt()],
+                        comparators=[
+                            Name(id='max_photos', ctx=Load())]),
+                    body=[
+                        Assign(
+                            targets=[
+                                Name(id='eye_img', ctx=Store())],
+                            value=Subscript(
+                                value=Name(id='roi_color', ctx=Load()),
+                                slice=Tuple(
+                                    elts=[
+                                        Slice(
+                                            lower=Name(id='ey', ctx=Load()),
+                                            upper=BinOp(
+                                                left=Name(id='ey', ctx=Load()),
+                                                op=Add(),
+                                                right=Name(id='eh', ctx=Load()))),
+                                        Slice(
+                                            lower=Name(id='ex', ctx=Load()),
+                                            upper=BinOp(
+                                                left=Name(id='ex', ctx=Load()),
+                                                op=Add(),
+                                                right=Name(id='ew', ctx=Load())))],
+                                    ctx=Load()),
+                                ctx=Load())),
+                        Assign(
+                            targets=[
+                                Name(id='eye_path', ctx=Store())],
+                            value=JoinedStr(
+                                values=[
+                                    FormattedValue(
+                                        value=Name(id='output_dir', ctx=Load()),
+                                        conversion=-1),
+                                    Constant(value='/eye_'),
+                                    FormattedValue(
+                                        value=Name(id='eye_count', ctx=Load()),
+                                        conversion=-1),
+                                    Constant(value='.jpg')])),
+                        Expr(
+                            value=Call(
+                                func=Attribute(
+                                    value=Name(id='cv2', ctx=Load()),
+                                    attr='imwrite',
+                                    ctx=Load()),
+                                args=[
+                                    Name(id='eye_path', ctx=Load()),
+                                    Name(id='eye_img', ctx=Load())],
+                                keywords=[])),
+                        AugAssign(
+                            target=Name(id='eye_count', ctx=Store()),
+                            op=Add(),
+                            value=Constant(value=1)),
+                        Break()],
+                    orelse=[])],
+            orelse=[])],
+    type_ignores=[])
